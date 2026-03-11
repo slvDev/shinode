@@ -207,7 +207,6 @@ pub async fn connect_mainnet_peers(storage: Option<Arc<Storage>>) -> Result<Netw
         .with_refill_slots_interval(Duration::from_millis(PEER_REFILL_INTERVAL_MS));
     let net_config = NetworkConfigBuilder::<EthNetworkPrimitives>::new(secret_key)
         .mainnet_boot_nodes()
-        .with_unused_ports()
         .peer_config(peers_config)
         .disable_tx_gossip(true)
         .block_import(Box::new(ProofOfStakeBlockImport::default()))
